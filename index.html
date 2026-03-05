@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelpingHands Batavia | Lawn & Home Services</title>
+  <meta name="description" content="HelpingHands Batavia – affordable, professional lawn care and home services for the Tri-Cities area. Founded by local high school students with heart." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       BRAND STANDARD
+       Primary Green   : #2D6A4F
+       Accent Green    : #52B788
+       Light Green     : #B7E4C7
+       Gold Accent     : #E9C46A
+       Dark             : #1A2E1A
+       Off-White        : #F8FAF7
+       White            : #FFFFFF
+       Text Dark        : #1C1C1E
+       Text Mid         : #4A5568
+       Font Heading     : Playfair Display
+       Font Body        : Inter
+    ============================================================ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #2D6A4F;
+      --green-accent: #52B788;
+      --green-light:  #B7E4C7;
+      --gold:         #E9C46A;
+      --dark:         #1A2E1A;
+      --off-white:    #F8FAF7;
+      --white:        #FFFFFF;
+      --text-dark:    #1C1C1E;
+      --text-mid:     #4A5568;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(0,0,0,0.10);
+      --shadow-lg:    0 8px 48px rgba(0,0,0,0.16);
+      --transition:   0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .btn-primary:hover { background: #d4a f3b; filter: brightness(0.93); transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
+    .btn-green {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+    .btn-green:hover { background: #235540; transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      background: rgba(26,46,26,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { margin-left: 16px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--dark);
+      padding: 16px 24px 24px;
+      gap: 12px;
+    }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(26,46,26,0.88) 0%, rgba(45,106,79,0.75) 100%),
+        url('generated_imgs/edited-2026-03-05T20-01-39-879Z-1zqmer.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding-top: 68px;
+    }
+    .hero-content { max-width: 680px; }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      margin-top: 64px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat-item { color: var(--white); }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--green-dark);
+      padding: 20px 0;
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .trust-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--off-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      border-radius: var(--radius);
+      object-fit: cover;
+      height: 480px;
+      width: 100%;
+    }
+    .award-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.3;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-text h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; color: var(--dark); }
+    .about-text p { color: var(--text-mid); line-height: 1.8; font-size: 16px; margin-bottom: 16px; }
+    .founders-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 28px 0;
+    }
+    .founder-chip {
+      background: var(--white);
+      border: 1px solid var(--green-light);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .founder-chip::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--white); }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 12px; color: var(--dark); }
+    .section-header p { color: var(--text-mid); font-size: 17px; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--off-white);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--green-accent);
+      transform: scaleY(0);
+      transition: transform var(--transition);
+      transform-origin: bottom;
+    }
+    .service-card:hover {
+      border-color: var(--green-light);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { transform: scaleY(1); }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .service-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+    .service-more {
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── STORIES ── */
+    .stories-section {
+      background:
+        linear-gradient(rgba(26,46,26,0.92), rgba(26,46,26,0.96)),
+        url('generated_imgs/generated-2026-03-05T20-02-42-173Z-d3da4n.png') center/cover no-repeat;
+    }
+    .stories-section .section-header h2,
+    .stories-section .badge { color: var(--white); }
+    .stories-section .badge { background: rgba(255,255,255,0.12); }
+    .stories-section .section-header p { color: rgba(255,255,255,0.7); }
+    .stories-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .story-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 32px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .story-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .story-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .story-card h3 { color: var(--white); font-size: 20px; margin-bottom: 12px; }
+    .story-card p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .story-read-more {
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── TESTIMONIALS CAROUSEL ── */
+    .testimonials-section {
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .testimonials-section .section-header h2 { color: var(--white); }
+    .testimonials-section .badge { background: rgba(255,255,255,0.12); color: var(--white); }
+    .testimonials-section .section-header p { color: rgba(255,255,255,0.65); }
+
+    .carousel-wrap { position: relative; }
+    .carousel-track-outer { overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+      will-change: transform;
+    }
+    .testimonial-slide {
+      flex: 0 0 100%;
+      padding: 0 12px;
+      display: flex;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 56px 64px 48px;
+      max-width: 780px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+    }
+    .big-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.35;
+      display: block;
+      margin-bottom: 24px;
+      user-select: none;
+    }
+    .stars { color: var(--gold); font-size: 22px; letter-spacing: 4px; margin-bottom: 28px; display: block; }
+    .testimonial-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3.5vw, 32px);
+      line-height: 1.5;
+      color: var(--white);
+      font-style: italic;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .reviewer {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 2;
+    }
+    .carousel-btn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
+
+    /* dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 36px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--gold);
+      width: 28px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .testimonial-card { padding: 40px 28px 36px; }
+      .big-quote { font-size: 80px; }
+      .carousel-btn { display: none; }
+    }
+
+    /* ── QUOTE FORM ── */
+    .quote-section {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1A5C3A 100%);
+      padding: 96px 0;
+    }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .quote-left h2 { font-size: clamp(32px, 4vw, 44px); color: var(--white); margin-bottom: 16px; }
+    .quote-left p { color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.8; margin-bottom: 28px; }
+    .contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .contact-info-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .ci-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-info-list a { color: rgba(255,255,255,0.85); }
+    .contact-info-list a:hover { color: var(--gold); }
+
+    /* Netlify Form */
+    .quote-form {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .quote-form h3 { font-size: 22px; margin-bottom: 24px; color: var(--dark); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--green-accent); box-shadow: 0 0 0 3px rgba(82,183,136,0.15); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; padding: 16px; font-size: 16px; }
+    .form-note { font-size: 12px; color: var(--text-mid); margin-top: 12px; text-align: center; }
+
+    /* Success Message */
+    .form-success {
+      display: none;
+      background: var(--green-light);
+      border: 1.5px solid var(--green-accent);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      color: var(--green-dark);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .form-success.show { display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 64px 0 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .nav-logo { font-size: 24px; margin-bottom: 14px; display: block; }
+    .footer-brand p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.8; }
+    .footer-col h4 { color: var(--white); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 14px; transition: color var(--transition); }
+    .footer-links a:hover { color: var(--gold); }
+    .social-links { display: flex; gap: 12px; margin-top: 20px; }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 17px;
+      transition: var(--transition);
+    }
+    .social-link:hover { background: var(--gold); color: var(--dark); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+    /* ── MODALS ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+    .modal-header {
+      padding: 32px 32px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .modal-header h2 { font-size: 26px; color: var(--dark); }
+    .modal-close {
+      background: var(--off-white);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--text-mid);
+      transition: var(--transition);
+    }
+    .modal-close:hover { background: var(--green-light); color: var(--green-dark); }
+    .modal-body { padding: 20px 32px 32px; }
+    .modal-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--green-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .modal-body p { color: var(--text-mid); line-height: 1.8; font-size: 15px; margin-bottom: 12px; }
+    .modal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+    .modal-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .modal-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .modal-cta { margin-top: 24px; }
+    .modal-cta .btn { width: 100%; justify-content: center; }
+
+    /* Story modal specific */
+    .story-modal .modal-body p { font-size: 15px; margin-bottom: 14px; }
+    .story-modal blockquote {
+      border-left: 4px solid var(--gold);
+      padding: 12px 20px;
+      background: var(--off-white);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-style: italic;
+      color: var(--text-mid);
+    }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTop {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 800;
+    }
+    #scrollTop.show { opacity: 1; pointer-events: all; }
+    #scrollTop:hover { background: var(--green-accent); transform: translateY(-2px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid,
+      .stories-grid,
+      .quote-grid,
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .award-badge { right: 16px; bottom: -16px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 64px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { gap: 24px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .modal-header { padding: 24px 24px 0; }
+      .modal-body { padding: 16px 24px 24px; }
+    }
+    @media (max-width: 420px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#"><span>Helping</span>Hands</a>
+      <ul class="nav-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#quote" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get a Free Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()">Our Story</a>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#stories" onclick="closeMobileMenu()">Stories</a>
+    <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+    <a href="#quote" onclick="closeMobileMenu()" style="color:var(--gold);font-weight:700;">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- ============================================================ HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="badge">Serving the Tri-Cities Area</span>
+      <h1>Your Neighborhood<br /><em>Helping Hands</em></h1>
+      <p>Affordable, professional lawn care and home services — delivered with heart by a team of dedicated young entrepreneurs from Batavia, IL.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-primary">Get a Free Quote &#8599;</a>
+        <a href="#services" class="btn btn-outline">See All Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">100+</span><span class="stat-label">Happy Customers</span></div>
+        <div class="stat-item"><span class="stat-num">14</span><span class="stat-label">Services Offered</span></div>
+        <div class="stat-item"><span class="stat-num">#1</span><span class="stat-label">Pitch Competition Winners</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><div class="trust-icon">&#9733;</div> 5-Star Rated</div>
+      <div class="trust-item"><div class="trust-icon">&#128081;</div> Award-Winning Business</div>
+      <div class="trust-item"><div class="trust-icon">&#9978;&#65039;</div> No Contracts Required</div>
+      <div class="trust-item"><div class="trust-icon">&#10004;</div> Fully Insured &amp; Reliable</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img
+          src="generated_imgs/generated-2026-03-05T20-02-10-140Z-rzix2u.png"
+          alt="The HelpingHands Batavia founding team"
+        />
+        <div class="award-badge">&#127942;<br />Pitch<br />Competition<br />Winner</div>
+      </div>
+      <div class="about-text">
+        <span class="badge">About Us</span>
+        <h2>Built on Heart,<br />Driven by Purpose</h2>
+        <p>HelpingHands began with a simple but powerful idea: serve people who needed it most — whether elderly, too busy, or unable to afford expensive lawn and home care services.</p>
+        <p>Founded by four high school students, we built this business on the belief that hard work, reliability, and genuine care could set us apart. We pitched our story at the Incubator Entrepreneurship Pitch Competition — and won first place.</p>
+        <p>Today we're a full-service operation serving Batavia and the Tri-Cities area, one yard, one home, one helping hand at a time.</p>
+        <div class="founders-list">
+          <div class="founder-chip">Jack Holzl</div>
+          <div class="founder-chip">Teagan Carlson</div>
+          <div class="founder-chip">Nate Barsch</div>
+          <div class="founder-chip">Bernard Fellows</div>
+        </div>
+        <a href="#quote" class="btn btn-green">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SERVICES -->
+<section class="services-section section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">What We Do</span>
+      <h2>Services We Offer</h2>
+      <p>From spring cleanups to snow removal — we handle the outdoor and home tasks so you don't have to.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card" onclick="openServiceModal('mowing')">
+        <div class="service-icon">&#127807;</div>
+        <h3>Lawn Mowing</h3>
+        <p>Consistent, clean cuts for a yard you're proud of every week.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('cleanup')">
+        <div class="service-icon">&#127808;</div>
+        <h3>Spring &amp; Fall Cleanup</h3>
+        <p>Get your yard ready for the season with a thorough cleanup.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('snow')">
+        <div class="service-icon">&#10052;&#65039;</div>
+        <h3>Snow Shoveling &amp; Salt</h3>
+        <p>Safe, clear walkways and driveways all winter long.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('edging')">
+        <div class="service-icon">&#9986;&#65039;</div>
+        <h3>Edging &amp; Trimming</h3>
+        <p>Sharp, defined edges that give your lawn a professional finish.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('mulching')">
+        <div class="service-icon">&#127795;</div>
+        <h3>Mulching</h3>
+        <p>Fresh mulch for beds, borders, and landscaping areas.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('weeding')">
+        <div class="service-icon">&#127823;</div>
+        <h3>Weeding &amp; Planting</h3>
+        <p>Clean flower beds and fresh plants to boost curb appeal.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('powerwash')">
+        <div class="service-icon">&#128167;</div>
+        <h3>Power Washing</h3>
+        <p>Blast away grime from driveways, siding, decks, and more.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('leaves')">
+        <div class="service-icon">&#127810;</div>
+        <h3>Leaf Cleanup</h3>
+        <p>Complete leaf removal so your lawn stays healthy and clear.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('hauling')">
+        <div class="service-icon">&#128668;</div>
+        <h3>Moving &amp; Hauling</h3>
+        <p>Need something moved or removed? We've got the muscle.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('junk')">
+        <div class="service-icon">&#128465;&#65039;</div>
+        <h3>Junk Removal</h3>
+        <p>Clear out unwanted items quickly and responsibly.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('bush')">
+        <div class="service-icon">&#127793;</div>
+        <h3>Bush Trimming</h3>
+        <p>Neat, shaped shrubs and bushes for polished landscaping.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+      <div class="service-card" onclick="openServiceModal('watering')">
+        <div class="service-icon">&#127815;</div>
+        <h3>Watering</h3>
+        <p>Keep your plants and lawn hydrated on a schedule that works.</p>
+        <div class="service-more">Learn more &#8594;</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ STORIES -->
+<section class="stories-section section" id="stories">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Our Stories</span>
+      <h2 style="color:var(--white);">More Than a Lawn Service</h2>
+      <p>Every job is a chance to make a real difference in someone's day.</p>
+    </div>
+    <div class="stories-grid">
+      <div class="story-card" onclick="openStoryModal('elderly')">
+        <div class="story-tag">Community Impact</div>
+        <h3>A Little Extra Help Goes a Long Way</h3>
+        <p>One of our longtime elderly clients needed more than just lawn care. What started as a standard spring visit turned into something much more meaningful...</p>
+        <div class="story-read-more">Read the full story &#8594;</div>
+      </div>
+      <div class="story-card" onclick="openStoryModal('injury')">
+        <div class="story-tag">Flexible Service</div>
+        <h3>No Contract? No Problem.</h3>
+        <p>A homeowner with an injured back couldn't mow his lawn. Every company he called wanted a long-term plan. We just showed up...</p>
+        <div class="story-read-more">Read the full story &#8594;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TESTIMONIALS -->
+<section class="testimonials-section section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Reviews</span>
+      <h2>What Our Clients Say</h2>
+      <p>Real words from real neighbors in the Batavia community.</p>
+    </div>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous review">&#8592;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <span class="big-quote">&#8220;</span>
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <blockquote>We had HelpingHands do a spring cleanup. Five amazing young men arrived and totally exceeded our expectations. Affordable, professional, and they really understand landscaping. Highly recommended!</blockquote>
+              <div class="reviewer">&#8212; Batavia Homeowner</div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <span class="big-quote">&#8220;</span>
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <blockquote>HUGE shout out to HelpingHands Batavia! Thank you so much for moving our chair to the basement. Both were friendly, professional, and beyond courteous! We're beyond grateful.</blockquote>
+              <div class="reviewer">&#8212; Satisfied Customer</div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <span class="big-quote">&#8220;</span>
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <blockquote>I hired them for weeding, mulch, and mowing. It turned out fantastic — the price was reasonable. They do better work than the past two services I had. I'll definitely be calling them again.</blockquote>
+              <div class="reviewer">&#8212; Tri-Cities Resident</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Next review">&#8594;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ QUOTE FORM -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-left">
+        <span class="badge" style="background:rgba(255,255,255,0.15);color:var(--white);">Free Estimate</span>
+        <h2>Ready to Get<br />Started?</h2>
+        <p>Fill out the form and we'll get back to you quickly with a free, no-obligation quote. No contracts, no pressure — just great service.</p>
+        <ul class="contact-info-list">
+          <li>
+            <div class="ci-icon">&#128222;</div>
+            <a href="tel:2242305513">(224) 230-5513</a>
+          </li>
+          <li>
+            <div class="ci-icon">&#128140;</div>
+            <a href="mailto:Helpinghands.Batavia@gmail.com">Helpinghands.Batavia@gmail.com</a>
+          </li>
+          <li>
+            <div class="ci-icon">&#128247;</div>
+            <a href="https://instagram.com/helpinghands_batavia" target="_blank" rel="noopener">@helpinghands_batavia</a>
+          </li>
+          <li>
+            <div class="ci-icon">&#128205;</div>
+            <span>Batavia, IL &mdash; Serving the Tri-Cities</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Netlify Form -->
+      <div class="quote-form">
+        <h3>Request a Free Quote</h3>
+        <div class="form-success" id="formSuccess">
+          &#10003; Thanks! We'll be in touch shortly.
+        </div>
+        <form
+          name="quote-request"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          id="quoteForm"
+        >
+          <!-- Netlify hidden fields -->
+          <input type="hidden" name="form-name" value="quote-request" />
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Service Address *</label>
+            <input type="text" id="address" name="address" required placeholder="123 Main St, Batavia, IL" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Lawn Mowing</option>
+              <option>Spring / Fall Cleanup</option>
+              <option>Snow Shoveling &amp; Salt</option>
+              <option>Edging &amp; Trimming</option>
+              <option>Mulching</option>
+              <option>Weeding</option>
+              <option>Planting</option>
+              <option>Power Washing</option>
+              <option>Leaf Cleanup</option>
+              <option>Bush Trimming</option>
+              <option>Moving &amp; Hauling</option>
+              <option>Junk Removal</option>
+              <option>Watering</option>
+              <option>Multiple / Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" placeholder="Tell us more about your yard, any special requests, preferred schedule..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-green form-submit">Send My Request &#8594;</button>
+          <p class="form-note">We typically respond within a few hours. No contracts required.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo"><span>Helping</span>Hands</span>
+        <p>Affordable, professional lawn care and home services for Batavia and the Tri-Cities area — delivered with heart by local young entrepreneurs.</p>
+        <div class="social-links">
+          <a class="social-link" href="https://instagram.com/helpinghands_batavia" target="_blank" rel="noopener" aria-label="Instagram">&#128247;</a>
+          <a class="social-link" href="tel:2242305513" aria-label="Call us">&#128222;</a>
+          <a class="social-link" href="mailto:Helpinghands.Batavia@gmail.com" aria-label="Email us">&#128140;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services" onclick="openServiceModal('mowing')">Lawn Mowing</a></li>
+          <li><a href="#services" onclick="openServiceModal('cleanup')">Spring Cleanup</a></li>
+          <li><a href="#services" onclick="openServiceModal('snow')">Snow Shoveling</a></li>
+          <li><a href="#services" onclick="openServiceModal('mulching')">Mulching</a></li>
+          <li><a href="#services" onclick="openServiceModal('hauling')">Moving &amp; Hauling</a></li>
+          <li><a href="#services" onclick="openServiceModal('powerwash')">Power Washing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:2242305513">(224) 230-5513</a></li>
+          <li><a href="mailto:Helpinghands.Batavia@gmail.com">Helpinghands.Batavia<br />@gmail.com</a></li>
+          <li><a href="https://instagram.com/helpinghands_batavia" target="_blank" rel="noopener">@helpinghands_batavia</a></li>
+          <li><span style="color:rgba(255,255,255,.55)">Batavia, IL</span></li>
+          <li><span style="color:rgba(255,255,255,.55)">Serving the Tri-Cities</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 HelpingHands Batavia. All rights reserved.</p>
+      <p>Founders: Jack Holzl, Teagan Carlson, Nate Barsch, Bernard Fellows</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ SCROLL TO TOP -->
+<button id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+<!-- ============================================================ SERVICE MODALS -->
+<div class="modal-overlay" id="serviceModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="serviceModalTitle">Service</h2>
+      <button class="modal-close" onclick="closeModal('serviceModal')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body" id="serviceModalBody"></div>
+  </div>
+</div>
+
+<!-- ============================================================ STORY MODALS -->
+<div class="modal-overlay" id="storyModal" role="dialog" aria-modal="true" class="story-modal">
+  <div class="modal story-modal">
+    <div class="modal-header">
+      <h2 id="storyModalTitle">Story</h2>
+      <button class="modal-close" onclick="closeModal('storyModal')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body" id="storyModalBody"></div>
+  </div>
+</div>
+
+<!-- ============================================================ JAVASCRIPT -->
+<script>
+  /* ---------- NAV HAMBURGER ---------- */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+  /* ---------- SCROLL TO TOP ---------- */
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---------- MODAL HELPERS ---------- */
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeModal(overlay.id);
+    });
+  });
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+  });
+
+  /* ---------- SERVICE MODAL DATA ---------- */
+  const services = {
+    mowing: {
+      icon: '&#127807;',
+      title: 'Lawn Mowing',
+      desc: 'A well-maintained lawn starts with a clean, consistent cut. Our mowing service delivers crisp results every time — leaving your yard looking sharp and healthy throughout the season.',
+      includes: [
+        'Full mow of front, back, and side yards',
+        'Clean trimming around obstacles and edges',
+        'Grass clipping dispersal or collection',
+        'Available weekly, bi-weekly, or one-time',
+        'Affordable flat rates — no hidden fees',
+      ],
+    },
+    cleanup: {
+      icon: '&#127808;',
+      title: 'Spring & Fall Cleanup',
+      desc: 'Get your yard ready for the season with a comprehensive cleanup that removes debris, dead growth, and the mess left by winter or summer.',
+      includes: [
+        'Leaf and debris removal',
+        'Dead plant and branch clearing',
+        'Bed cleanup and raking',
+        'General yard tidying',
+        'Haul-away included or available',
+      ],
+    },
+    snow: {
+      icon: '&#10052;&#65039;',
+      title: 'Snow Shoveling & Salt Spreading',
+      desc: 'Keep your walkways, driveways, and steps clear and safe all winter. We shovel promptly and spread salt to prevent re-freezing.',
+      includes: [
+        'Driveway and walkway shoveling',
+        'Front steps and path clearing',
+        'Salt / ice melt spreading',
+        'Same-day availability during storms',
+        'One-time and seasonal options',
+      ],
+    },
+    edging: {
+      icon: '&#9986;&#65039;',
+      title: 'Edging & Trimming',
+      desc: 'Clean, defined edges transform the look of any lawn. We edge along sidewalks, driveways, and garden beds for a professional finish.',
+      includes: [
+        'Sidewalk and driveway edging',
+        'Garden bed border cleanup',
+        'String trimming around fences and obstacles',
+        'Add-on to mowing or standalone service',
+      ],
+    },
+    mulching: {
+      icon: '&#127795;',
+      title: 'Mulching',
+      desc: 'Fresh mulch improves soil health, retains moisture, and dramatically boosts curb appeal. We install mulch evenly across all your beds and borders.',
+      includes: [
+        'Mulch selection advice',
+        'Bed preparation and edging',
+        'Even spreading and depth control',
+        'Front, back, and side beds',
+        'Customer supplies or we can source',
+      ],
+    },
+    weeding: {
+      icon: '&#127823;',
+      title: 'Weeding & Planting',
+      desc: 'Overgrown flower beds and persistent weeds don\'t stand a chance. We pull, clear, and plant to keep your landscaping looking its best.',
+      includes: [
+        'Hand-pulling and root removal',
+        'Flower bed cleanup',
+        'New plant installation',
+        'Ground cover spreading',
+        'Seasonal planting options',
+      ],
+    },
+    powerwash: {
+      icon: '&#128167;',
+      title: 'Power Washing',
+      desc: 'Restore your surfaces to like-new condition with a professional power wash. Great for driveways, decks, patios, siding, and fences.',
+      includes: [
+        'Driveway and sidewalk washing',
+        'Deck and patio cleaning',
+        'House siding rinse',
+        'Fence and retaining wall washing',
+        'Porch and step cleaning',
+      ],
+    },
+    leaves: {
+      icon: '&#127810;',
+      title: 'Leaf Cleanup',
+      desc: 'Don\'t let leaves pile up and smother your lawn. We handle full leaf collection and removal so your yard stays healthy going into winter.',
+      includes: [
+        'Full yard leaf blowing and raking',
+        'Bag and removal or mulch in place',
+        'Gutter clearing add-on available',
+        'One-time or recurring seasonal service',
+      ],
+    },
+    hauling: {
+      icon: '&#128668;',
+      title: 'Moving & Hauling',
+      desc: 'Need furniture moved inside, items relocated, or a load hauled away? Our team brings the muscle so you don\'t have to.',
+      includes: [
+        'Furniture moving inside the home',
+        'Basement and garage relocation',
+        'Heavy item assistance',
+        'Load and haul services',
+        'Friendly, careful handling',
+      ],
+    },
+    junk: {
+      icon: '&#128465;&#65039;',
+      title: 'Junk Removal',
+      desc: 'Clear out the clutter. We remove unwanted items from your home, garage, yard, or dumpster area quickly and responsibly.',
+      includes: [
+        'Furniture and appliance removal',
+        'Yard debris and brush haul-away',
+        'Garage and basement cleanouts',
+        'Quick scheduling available',
+        'No-contract, pay per service',
+      ],
+    },
+    bush: {
+      icon: '&#127793;',
+      title: 'Bush & Shrub Trimming',
+      desc: 'Well-shaped shrubs elevate your entire property\'s look. We trim, shape, and clean up bushes and hedges throughout your yard.',
+      includes: [
+        'Ornamental shrub shaping',
+        'Hedge trimming and leveling',
+        'Dead branch removal',
+        'Clipping cleanup and haul-away',
+        'Available as a standalone or bundled service',
+      ],
+    },
+    watering: {
+      icon: '&#127815;',
+      title: 'Watering Service',
+      desc: 'Going out of town or just too busy? We keep your lawn, garden, and plants properly hydrated on a schedule that works for you.',
+      includes: [
+        'Garden and flower bed watering',
+        'New plant establishment watering',
+        'Scheduled visits while you\'re away',
+        'Custom watering plans available',
+      ],
+    },
+  };
+
+  function openServiceModal(key) {
+    const s = services[key];
+    if (!s) return;
+    document.getElementById('serviceModalTitle').innerHTML = s.icon + ' ' + s.title;
+    document.getElementById('serviceModalBody').innerHTML = `
+      <p>${s.desc}</p>
+      <p style="font-weight:700;color:var(--dark);margin-top:20px;margin-bottom:4px;">What's Included:</p>
+      <ul class="modal-list">${s.includes.map(i => `<li>${i}</li>`).join('')}</ul>
+      <div class="modal-cta">
+        <a href="#quote" class="btn btn-green" onclick="closeModal('serviceModal')">Get a Quote for ${s.title} &#8594;</a>
+      </div>
+    `;
+    openModal('serviceModal');
+  }
+
+  /* ---------- STORY MODAL DATA ---------- */
+  const stories = {
+    elderly: {
+      title: 'A Little Extra Help Goes a Long Way',
+      tag: 'Community Impact',
+      body: `
+        <p>It was early March, right when lawns start waking up for the season. Schedules were filling fast, and the goal that week was simple: get yards cleaned up and ready for spring.</p>
+        <p>One of our longtime clients texted ahead of her appointment. She mentioned she might need a bit more help than usual — some spring cleanup and a few outdoor tasks that had piled up over the winter. She's elderly, lives alone, and has always been incredibly kind to us, so we told her we'd take care of whatever she needed.</p>
+        <blockquote>"What was planned as a quick visit turned into another hour and a half of work, making sure everything outside was safe, clean, and manageable for her."</blockquote>
+        <p>After finishing her lawn, the yard looked fresh and ready for the season. She stepped outside, smiled, and asked if we could help with a few extra things — moving items, clearing debris, and handling some weeding.</p>
+        <p>When everything was done, she thanked us with a big hug. We told her to only pay for the lawn mowing. The rest was simply part of our mission — to help.</p>
+        <p style="font-weight:600;color:var(--green-dark);">Moments like that are why we do what we do. Yes, we're a business. But we believe serving our community means more than just cutting grass.</p>
+      `,
+    },
+    injury: {
+      title: 'No Contract? No Problem.',
+      tag: 'Flexible Service',
+      body: `
+        <p>One afternoon in the middle of summer, we received a call from a number we didn't recognize. As our business has grown, more and more people find us online — so we picked up expecting a new client. We were right.</p>
+        <p>The caller explained that he had recently injured his back and couldn't mow his lawn. He had already contacted several landscaping companies, but most didn't answer, and the ones that did wanted to sign him up for a recurring service plan.</p>
+        <blockquote>"He didn't need a long-term contract. He just needed help — one time."</blockquote>
+        <p>We told him we'd be there.</p>
+        <p>For us, service isn't about locking people into schedules. If someone needs help once, we help once. If they need ongoing care, we're happy to do that too. What matters most is meeting people where they are.</p>
+        <p>He was incredibly grateful that we made it simple. No pressure, no commitments — just a freshly cut lawn and one less thing to worry about while he recovered.</p>
+        <p style="font-weight:600;color:var(--green-dark);">Because helping people shouldn't depend on a contract. It should depend on care.</p>
+      `,
+    },
+  };
+
+  function openStoryModal(key) {
+    const s = stories[key];
+    if (!s) return;
+    document.getElementById('storyModalTitle').innerHTML = s.title;
+    document.getElementById('storyModalBody').innerHTML = `
+      <span class="story-tag">${s.tag}</span>
+      ${s.body}
+      <div class="modal-cta" style="margin-top:28px;">
+        <a href="#quote" class="btn btn-green" onclick="closeModal('storyModal')">Work With Us &#8594;</a>
+      </div>
+    `;
+    openModal('storyModal');
+  }
+
+  /* ---------- TESTIMONIAL CAROUSEL ---------- */
+  (function () {
+    const track  = document.getElementById('carouselTrack');
+    const slides = Array.from(track.querySelectorAll('.testimonial-slide'));
+    const dotsEl = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    let current = 0;
+    let autoTimer;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      resetTimer();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    // Auto-advance
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+    resetTimer();
+  })();
+
+  /* ---------- NETLIFY FORM AJAX SUBMIT ---------- */
+  const quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(quoteForm);
+    const encoded = new URLSearchParams(formData).toString();
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded,
+      });
+      if (res.ok) {
+        document.getElementById('formSuccess').classList.add('show');
+        quoteForm.reset();
+        quoteForm.style.opacity = '0.4';
+        quoteForm.style.pointerEvents = 'none';
+      } else {
+        alert('Oops — something went wrong. Please call or email us directly.');
+      }
+    } catch (err) {
+      alert('Oops — something went wrong. Please call or email us directly.');
+    }
+  });
+</script>
+</body>
+</html>
